@@ -1,9 +1,5 @@
-#Team 16 Gas Detection Device
-#Team Members:
-#Carlos Mejias
-#Kevin Mata
-#Marcos Beckert
-#Aned Gonzales
+#Gas Detection
+#Anabel Rodriguez
 #Publishing sensor data on bluetooth bus:
 
 
