@@ -1,0 +1,23 @@
+
+import requests
+import base64
+import json
+from datetime import datetime
+dateTimeObj = datetime.now()
+
+
+IMAGE_PATH='Images test\image_test2.jpeg' #image selections path, chose any image
+
+SECRET_KEY='sk_d478fff1a6027dcf8dc6a305' #key for the OPENALPR site
+
+with open(IMAGE_PATH, 'rb') as image_file:  #open image and format to code base 64
+    img_base64 = base64.b64encode(image_file.read())
+
+url = 'https://api.openalpr.com/v2/recognize_bytes?recognize_vehicle=1&country=us&secret_key=%s' % (SECRET_KEY)
+r = requests.post(url, data=img_base64) #use key on the URL to request the plate information
+
+
+print("\nDate & Time: ", dateTimeObj) #date time print
+print("\nLicence Plate: " + r.json()['results'][0]['plate'] + "  State: " + r.json()['results'][0]['region']) #the plate number and state
+
+
